@@ -1,0 +1,34 @@
+
+/* ---------- Navbar ---------- */ 
+.nav-item.dropdown a:hover {
+    color: green;
+}
+
+.nav-item > a:first-child  {
+    text-transform: uppercase;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
+
+input[type="Search"] {
+    min-width: 235px;
+}
+
+
+/* ---------- Forms ---------- */
+.form-container, .main-section, .card-body > div:first-child  {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.form-container {
+    margin: 50px 20px;
+    flex-direction: column;
+}
+
+.main-section {
+    margin: 0 auto;
+}

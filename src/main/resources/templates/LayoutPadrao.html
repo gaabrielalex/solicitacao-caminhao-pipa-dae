@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html 	xmlns="https://www.w3.org/1999/xhtml" 
+		xmlns:th="https://www.thymeleaf.org"
+		xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+		lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DAE Várzea Grande</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" sizes="any">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+	<!-- CSS Proprietário -->
+	<link rel="stylesheet" type="text/css" href="/css/styles/style.css">
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg shadow">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="http://localhost:9010/home">
+					<img src="/images/logo-dae.png" alt="DAE - Várze Grande">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								DAE
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Quem Somos</a></li>
+								<li><a class="dropdown-item" href="#">Diretoria</a></li>
+								<li><a class="dropdown-item" href="#">Água</a></li>
+								<li><a class="dropdown-item" href="#">Esgoto</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								SERVIÇOS
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="http://localhost:9010/solicitacaoCaminhaoPipa/novo">Solitação de
+										Caminhão Pipa</a></li>
+								<li><a class="dropdown-item" href="#">Desentupimento de Esgotos</a></li>
+								<li><a class="dropdown-item" href="#">Limpeza de Reservatórios de Água</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								COMUNICAÇÂO
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Notícias e Eventos</a></li>
+								<li><a class="dropdown-item" href="#">Galeria</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search" placeholder="O que você está buscando?"
+							aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Pesquisar</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+	<!--Conteúdo-->
+	<section layout:fragment="conteudo">
+	</section>
+
+	<!-- Scripts -->
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/js/sweetalert2.all.min.js"></script>
+	<script src="/js/jquery.mask.js"></script>
+
+	<!-- Scripts Proprietário -->
+	<script type="module" src="/js/scripts/script.js"></script>
+</body>
+
+</html>
