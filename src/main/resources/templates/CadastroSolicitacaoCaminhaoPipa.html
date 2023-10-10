@@ -7,91 +7,94 @@
 </head>
 
 <body>
-	<section layout:fragment="conteudo" class="main-section">
-		<div class="form-container col-md-7 col-lg-7">
-			<form action="/solicitacaoCaminhaoPipa" method="POST" class="was-validate">
-				<div>
-					<div class="alert alert-success alert-dismisible" role="alert"
-						th:if="${!#strings.isEmpty(mensagem)}" data-dismiss="alert" >
-						<span th:text="${mensagem}"> </span>
-					</div>
-
-					<div class="card">
-						<h5 class="card-header">Nova Solicitação de Caminhão Pipa</h5>
-						<div class="card-body">
-							<div class="row g-3">
-								<div class="col-sm-12">
-									<label for="nomeSolicitante" class="form-label">Nome do solicitante:</label>
-									<input type="text" class="form-control" id="nomeSolicitante" placeholder="Nome do solicitante" name="nomeSolicitante" 
-									 maxlength="100" required="" control-id="ControlID-1">
-								</div>
-
-								<div class="col-12">
-									<label for="cpf" class="form-label">CPF:</label>
-									<div class="input-group has-validation">
-										<input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" name="cpf"
-										minlength="14" data-mask="000.000.000-00" required="" control-id="ControlID-2">
+	<section layout:fragment="conteudo">
+		<div class="main-section">
+			<div class="form-container col-md-7 col-lg-7">
+				<form action="/solicitacaoCaminhaoPipa" method="POST" class="was-validate">
+					<div>
+						<div class="alert alert-success alert-dismisible" role="alert"
+							th:if="${!#strings.isEmpty(mensagem)}" data-dismiss="alert" >
+							<span th:text="${mensagem}"> </span>
+						</div>
+	
+						<div class="card">
+							<h5 class="card-header">Nova Solicitação de Caminhão Pipa</h5>
+							<div class="card-body">
+								<div class="row g-3">
+									<div class="col-sm-12">
+										<label for="nomeSolicitante" class="form-label">Nome do solicitante:</label>
+										<input type="text" class="form-control" id="nomeSolicitante" placeholder="Nome do solicitante" name="nomeSolicitante" 
+										 maxlength="100" required="" control-id="ControlID-1">
 									</div>
-								</div>
-
-								<div class="col-12">
-									<label for="telefone" class="form-label">Telefone:</label>
-									<input type="text" class="form-control" id="telefone" placeholder="(00) 00000-0000" name="telefone"
-									minlength="15" data-mask="(00) 00000-0000" required="" control-id="ControlID-3">
-								</div>
-
-								<div class="col-12">
-									<label for="endereco" class="form-label">Endereço:</label>
-									<input type="text" class="form-control" id="endereco" placeholder="Av. xxx, nº XXX, - Bairro XXXX. CEP: 00000-000" name="endereco"
-									maxlength="200" required="" control-id="ControlID-4">
-								</div>
-								
-								<div class="col-12">
-									<label for="descricaoProblema" class="form-label">Descrição do problema:</label>
-									<textarea class="form-control" id="descricaoProblema" name="descricaoProblema"
-									minlength="20" maxlength="400" required control-id="ControlID-5"></textarea>
-								</div>
-
-								<div class="col-12">
-									<label for="litrosAguaSolicitado" class="form-label">Quantidade de água necessária(Litros):</label>
-									<input type="number" class="form-control" id="litrosAguaSolicitado" name="litrosAguaSolicitado"
-									min="0" max="100000000" step="1000" required="" control-id="ControlID-6"
-									onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
-								</div>
-
-								<div class="col-12">
-									<label for="nivelUrgencia" class="form-label">Nível de Urgência:</label>
-									<select class="form-select" id="nivelUrgencia" name="nivelUrgencia" required="" control-id="ControlID-7">
-										<option th:each="nivel : ${niveisUrgencia}" th:value="${nivel}"
-										th:text="${nivel.descricao}"> </option>
-									</select>
-								</div>
-								
-								<div class="col-12">
-									<div class="row" >
-										<label for="dataHoraEntrega" class="form-label">Data e hora desejada da entrega:</label>
-
-										<div class="col-8">
-											<input type="date" class="form-control" id="dataHoraEntrega" name="dataEntrega"
-											max="2100-10-01" control-id="ControlID-8">			
-										</div>
-
-										<div class="col-4">
-											<input type="time" class="form-control" id="dataHoraEntrega" name="horaEntrega"
-											 control-id="ControlID-9">			
+	
+									<div class="col-12">
+										<label for="cpf" class="form-label">CPF:</label>
+										<div class="input-group has-validation">
+											<input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" name="cpf"
+											minlength="14" data-mask="000.000.000-00" required="" control-id="ControlID-2">
 										</div>
 									</div>
+	
+									<div class="col-12">
+										<label for="telefone" class="form-label">Telefone:</label>
+										<input type="text" class="form-control" id="telefone" placeholder="(00) 00000-0000" name="telefone"
+										minlength="15" data-mask="(00) 00000-0000" required="" control-id="ControlID-3">
+									</div>
+	
+									<div class="col-12">
+										<label for="endereco" class="form-label">Endereço:</label>
+										<input type="text" class="form-control" id="endereco" placeholder="Av. xxx, nº XXX, - Bairro XXXX. CEP: 00000-000" name="endereco"
+										maxlength="200" required="" control-id="ControlID-4">
+									</div>
+									
+									<div class="col-12">
+										<label for="descricaoProblema" class="form-label">Descrição do problema:</label>
+										<textarea class="form-control" id="descricaoProblema" name="descricaoProblema"
+										minlength="20" maxlength="400" required control-id="ControlID-5"></textarea>
+									</div>
+	
+									<div class="col-12">
+										<label for="litrosAguaSolicitado" class="form-label">Quantidade de água necessária(Litros):</label>
+										<input type="number" class="form-control" id="litrosAguaSolicitado" name="litrosAguaSolicitado"
+										min="0" max="100000000" step="1000" required="" control-id="ControlID-6"
+										onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
+									</div>
+	
+									<div class="col-12">
+										<label for="nivelUrgencia" class="form-label">Nível de urgência:</label>
+										<select class="form-select" id="nivelUrgencia" name="nivelUrgencia" required="" control-id="ControlID-7">
+											<option th:each="nivel : ${niveisUrgencia}" th:value="${nivel}"
+											th:text="${nivel.descricao}"> </option>
+										</select>
+									</div>
+									
+									<div class="col-12">
+										<div class="row" >
+											<label for="dataHoraEntrega" class="form-label">Data e hora desejada da entrega:</label>
+	
+											<div class="col-8">
+												<input type="date" class="form-control" id="dataHoraEntrega" name="dataEntrega"
+												max="2100-10-01" control-id="ControlID-8">			
+											</div>
+	
+											<div class="col-4">
+												<input type="time" class="form-control" id="dataHoraEntrega" name="horaEntrega"
+												 control-id="ControlID-9">			
+											</div>
+										</div>
+									</div>
+	
+									<hr class="my-4">
+	
+									<button class="w-100 btn btn-primary btn-lg" type="submit" control-id="ControlID-10">Enviar</button>
 								</div>
-
-								<hr class="my-4">
-
-								<button class="w-100 btn btn-primary btn-lg" type="submit" control-id="ControlID-10">Enviar</button>
 							</div>
 						</div>
 					</div>
-				</div>
-			</form>
-		</container>
+				</form>
+			</container>
+		</div>
+
 
 	</section>
 </body>

@@ -8,9 +8,18 @@
     text-transform: uppercase;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover:nth-child(-n+3) .dropdown-menu  {
     display: block;
     margin-top: 0; /* remove the gap so it doesn't close */
+}
+
+.menu-lateral {
+    display: none !important;
+}
+
+.dropdown-item:hover + .menu-lateral, .menu-lateral:hover {
+    display: block !important;
+    margin: -40px -20px 0 275px !important;
 }
 
 input[type="Search"] {
@@ -31,4 +40,8 @@ input[type="Search"] {
 
 .main-section {
     margin: 0 auto;
+}
+
+.small-column {
+    min-width: 150px;
 }

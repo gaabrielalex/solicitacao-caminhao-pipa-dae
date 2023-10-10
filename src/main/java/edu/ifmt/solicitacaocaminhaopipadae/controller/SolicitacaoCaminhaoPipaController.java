@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ch.qos.logback.core.model.Model;
 import edu.ifmt.solicitacaocaminhaopipadae.model.solicitacao_cp.NivelUrgencia;
 import edu.ifmt.solicitacaocaminhaopipadae.model.solicitacao_cp.SolicitacaoCaminhaoPipa;
 import edu.ifmt.solicitacaocaminhaopipadae.repository.SolicitacaoCaminhaoPipaRepository;
@@ -19,6 +20,8 @@ import edu.ifmt.solicitacaocaminhaopipadae.repository.SolicitacaoCaminhaoPipaRep
 @RequestMapping("/solicitacaoCaminhaoPipa")
 public class SolicitacaoCaminhaoPipaController {
 
+	private static final String CADASTRO_VIEW = "CadastroSolicitacaoCaminhaoPipa";
+
 	@Autowired
     private SolicitacaoCaminhaoPipaRepository solicitacaoCPRepository;
 	
@@ -27,16 +30,25 @@ public class SolicitacaoCaminhaoPipaController {
 		return Arrays.asList(NivelUrgencia.values());
 	}
 	
+	@RequestMapping("/pesquisar")
+	public ModelAndView pesquisar() {
+		List<SolicitacaoCaminhaoPipa> listaSolicitacoesCP = solicitacaoCPRepository.findAll();
+
+		ModelAndView mv = new ModelAndView("PesquisaSolicitacaoCP");
+		mv.addObject("listaSolicitacoesCP", listaSolicitacoesCP);
+		return mv;
+	}
+	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		return new ModelAndView("CadastroSolicitacaoCaminhaoPipa");
+		return new ModelAndView(CADASTRO_VIEW);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(SolicitacaoCaminhaoPipa solicitacaoCP) {
 		solicitacaoCPRepository.save(solicitacaoCP);
 
-		ModelAndView mv = new ModelAndView("CadastroSolicitacaoCaminhaoPipa");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject("mensagem", "Solicitação enviada com sucesso!" );
 		return mv;
 	}

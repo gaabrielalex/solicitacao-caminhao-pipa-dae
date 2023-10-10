@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html 
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao}"
+>
+<head>
+	<title>Pesquisa</title>
+</head>
+<body>
+	<section layout:fragment="conteudo">
+		<form action="/titulo" method="POST">
+			<div class="col form-container">
+				<div class="card">
+					<h5 class="card-header">Novo Titulo</h5>
+					<div class="card-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<th scope="col" class="text-center" >#</th>
+								<th scope="col" class="text-center">Nome do solicitante</th>
+								<th scope="col" class="text-center small-column">CPF</th>
+								<th scope="col" class="text-center small-column">Telefone</th>
+                                <th scope="col" class="text-center">Endereco</th>
+                                <th scope="col" class="text-center">Descrição do problema</th>
+                                <th scope="col" class="text-center">Litragem solicitada</th>
+                                <th scope="col" class="text-center">Nível de urgência</th>
+                                <th scope="col" class="text-center">Data e hora desejada da entrega</th>
+								<th scope="col"></th>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="12" class="text-center"   
+                                    th:if="${#lists.isEmpty(listaSolicitacoesCP)}">
+                                    Nenhum Registrado Encontrado
+                                    </td>
+								</tr>
+                                <tr scope="row" th:each="solicitacaoCP : ${listaSolicitacoesCP}">
+                                    <td class="text-center" th:text="${solicitacaoCP.codigo}" ></td>
+                                    <td class="text-left" th:text="${solicitacaoCP.nomeSolicitante}"></td>
+                                    <td class="text-center" th:text="${solicitacaoCP.cpf}"></td>
+                                    <td class="text-center" th:text="${solicitacaoCP.telefone}"></td>
+                                    <td class="text-left" th:text="${solicitacaoCP.endereco}"></td>
+                                    <td class="text-left" th:text="${solicitacaoCP.descricaoProblema}"></td>
+                                    <td class="text-center" th:text="${solicitacaoCP.litrosAguaSolicitado}"></td>
+                                    <td class="text-center" th:text="${solicitacaoCP.nivelUrgencia.getDescricao()}"></td>
+                                    <td class="text-center" th:text="${{solicitacaoCP.dataEntrega}} + ' ' + ${{solicitacaoCP.horaEntrega}}"></td>
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</body>
+</html>
