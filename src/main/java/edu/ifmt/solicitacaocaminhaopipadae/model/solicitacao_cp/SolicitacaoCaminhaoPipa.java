@@ -148,4 +148,19 @@ public class SolicitacaoCaminhaoPipa {
                 + ", dataEntrega=" + dataEntrega + ", horaEntrega=" + horaEntrega + "]";
     }
     
+    public boolean isAlto() {
+        return NivelUrgencia.ALTO.equals(this.nivelUrgencia);
+    }
+
+    public boolean isMedio() {
+        return NivelUrgencia.MEDIO.equals(this.nivelUrgencia);
+    }
+
+    public boolean isBaixo() {
+        return NivelUrgencia.BAIXO.equals(this.nivelUrgencia);
+    }
+
+    public boolean isNenhum() {
+        return NivelUrgencia.NENHUM.equals(this.nivelUrgencia);
+    }
 }
