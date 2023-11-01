@@ -32,7 +32,7 @@ public class SolicitacaoCaminhaoPipa {
     private NivelUrgencia nivelUrgencia;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataEntrega;
 
     @Temporal(TemporalType.TIME)
