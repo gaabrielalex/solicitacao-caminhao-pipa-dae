@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class SolicitacaoCaminhaoPipa {
@@ -11,6 +13,7 @@ public class SolicitacaoCaminhaoPipa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
+    @NotBlank
     @Column(length = 100)
     private String nomeSolicitante;
 
@@ -26,6 +29,7 @@ public class SolicitacaoCaminhaoPipa {
     @Column(length = 400)
     private String descricaoProblema;
 
+    @NotNull
     private double litrosAguaSolicitado;
 
     @Enumerated(EnumType.STRING)
