@@ -46,7 +46,8 @@
                                     <td class="text-center">
 										<span class="badge" th:text="${solicitacaoCP.nivelUrgencia.getDescricao()}"
 										th:classappend="${solicitacaoCP.isAlto() ? 'bg-danger'
-												: solicitacaoCP.isMedio() ? 'bg-warning' : 'bg-success'}"></span>
+												: solicitacaoCP.isMedio() ? 'bg-warning'
+												: solicitacaoCP.isBaixo() ? 'bg-primary' : 'bg-secondary'}"></span>
 									</td>
                                     <td class="text-center" th:text="${{solicitacaoCP.dataEntrega}} + ' ' + ${{solicitacaoCP.horaEntrega}}"></td>
                                 </tr>
