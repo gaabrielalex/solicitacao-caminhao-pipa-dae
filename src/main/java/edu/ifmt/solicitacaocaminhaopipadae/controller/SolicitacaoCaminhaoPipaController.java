@@ -42,17 +42,20 @@ public class SolicitacaoCaminhaoPipaController {
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		return new ModelAndView(CADASTRO_VIEW);
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject("solicitacaoCP", new SolicitacaoCaminhaoPipa());
+		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(@Validated SolicitacaoCaminhaoPipa solicitacaoCP, Errors errors) {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject("solicitacaoCP", new SolicitacaoCaminhaoPipa());
 		if (errors.hasErrors()) {
 			return mv;
 		}
+		
 		solicitacaoCPRepository.save(solicitacaoCP);
-
 		mv.addObject("mensagem", "Solicitação enviada com sucesso!" );
 		return mv;
 	}
