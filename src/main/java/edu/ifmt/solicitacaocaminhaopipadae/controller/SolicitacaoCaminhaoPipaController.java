@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,10 +46,13 @@ public class SolicitacaoCaminhaoPipaController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(SolicitacaoCaminhaoPipa solicitacaoCP) {
+	public ModelAndView salvar(@Validated SolicitacaoCaminhaoPipa solicitacaoCP, Errors errors) {
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		if (errors.hasErrors()) {
+			return mv;
+		}
 		solicitacaoCPRepository.save(solicitacaoCP);
 
-		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject("mensagem", "Solicitação enviada com sucesso!" );
 		return mv;
 	}
