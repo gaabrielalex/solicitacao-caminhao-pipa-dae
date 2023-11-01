@@ -10,11 +10,18 @@
 	<section layout:fragment="conteudo">
 		<div class="main-section">
 			<div class="form-container col-md-7 col-lg-7">
-				<form action="/solicitacaoCaminhaoPipa" method="POST" class="was-validate">
+				<form action="/solicitacaoCaminhaoPipa" method="POST" class="was-validate" th:object="${solicitacaoCP}">
 					<div>
 						<div class="alert alert-success alert-dismisible" role="alert"
 							th:if="${!#strings.isEmpty(mensagem)}" data-dismiss="alert" >
 							<span th:text="${mensagem}"> </span>
+						</div>
+
+						<div class="alert alert-danger alert-dismisible fade show" role="alert" data-dismiss="alert" 
+							th:if="${#fields.hasAnyErrors()}">
+							<div th:each="detailedError : ${#fields.detailedErrors()}">
+								<span th:text="${detailedError.message}"></span>
+							</div>
 						</div>
 	
 						<div class="card">
