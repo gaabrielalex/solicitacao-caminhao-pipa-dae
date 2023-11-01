@@ -43,7 +43,11 @@
                                     <td class="text-left" th:text="${solicitacaoCP.endereco}"></td>
                                     <td class="text-left" th:text="${solicitacaoCP.descricaoProblema}"></td>
                                     <td class="text-center" th:text="${solicitacaoCP.litrosAguaSolicitado}"></td>
-                                    <td class="text-center" th:text="${solicitacaoCP.nivelUrgencia.getDescricao()}"></td>
+                                    <td class="text-center">
+										<span class="badge" th:text="${solicitacaoCP.nivelUrgencia.getDescricao()}"
+										th:classappend="${solicitacaoCP.isAlto() ? 'bg-danger'
+												: solicitacaoCP.isMedio() ? 'bg-warning' : 'bg-success'}"></span>
+									</td>
                                     <td class="text-center" th:text="${{solicitacaoCP.dataEntrega}} + ' ' + ${{solicitacaoCP.horaEntrega}}"></td>
                                 </tr>
 							</tbody>
