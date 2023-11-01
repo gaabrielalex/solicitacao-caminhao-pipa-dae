@@ -17,13 +17,10 @@
 							<span th:text="${mensagem}"> </span>
 						</div>
 
-						<div class="alert alert-danger alert-dismisible fade show" role="alert" data-dismiss="alert"
-							th:if="${#fields.hasErrors('nomeSolicitante') || #fields.hasErrors('cpf') || #fields.hasErrors('telefone') 
-								|| #fields.hasErrors('endereco') || #fields.hasErrors('descricaoProblema') || #fields.hasErrors('litrosAguaSolicitado')
-								|| #fields.hasErrors('nivelUrgencia') || #fields.hasErrors('dataEntrega') || #fields.hasErrors('horaEntrega')}" th:errors="*{nomeSolicitante}, *{cpf}, *{telefone}, *{endereco}, *{descricaoProblema}, *{litrosAguaSolicitado}, *{nivelUrgencia}, *{dataEntrega}, *{horaEntrega}">
-							Teste
-							<div th:each="detailedError : ${#fields.detailedErrors()}" class="alert alert-danger alert-dismisible fade show" role="alert">
-								<span th:text="${detailedError.message}">Teste</span>
+						<div class="alert alert-danger alert-dismisible fade show" role="alert" data-dismiss="alert" 
+							th:if="${#fields.hasAnyErrors()}">
+							<div th:each="detailedError : ${#fields.detailedErrors()}">
+								<span th:text="${detailedError.message}"></span>
 							</div>
 						</div>
 	
